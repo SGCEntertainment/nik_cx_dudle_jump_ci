@@ -17,8 +17,7 @@ jobs:
       matrix:
         targetPlatform:
           - Android
-    steps:
-    
+    steps:  
     - uses: actions/checkout@v2
         with:
           fetch-depth: 0
