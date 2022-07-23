@@ -27,9 +27,15 @@ jobs:
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
           
-      - uses: game-ci/unity-builder@v2
+      - uses: game-ci/unity-builder@v2.0.4
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+          androidAppBundle: false
+          androidKeystoreName: user.keystore
+          androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+          androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+          androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
 
 
   deployPages:
