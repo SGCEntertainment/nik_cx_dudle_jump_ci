@@ -94,7 +94,6 @@ jobs:
             Library-build-
             Library-
             
-      - name: Unity - Builder
       - uses: game-ci/unity-builder@v2.0.4
         with:
           targetPlatform: Android
