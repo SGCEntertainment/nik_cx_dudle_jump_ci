@@ -18,9 +18,8 @@ jobs:
         targetPlatform:
           - Android
     steps:
-    - uses: actions/checkout@v2
-        with:
-          lfs: true
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
           
       - uses: actions/cache@v2
         with:
@@ -29,8 +28,6 @@ jobs:
           restore-keys: Library-
           
       - uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
 
