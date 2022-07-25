@@ -29,6 +29,7 @@ jobs:
           
       - uses: game-ci/unity-builder@v2.0.4
         with:
+          androidAppBundle: true
           targetPlatform: ${{ matrix.targetPlatform }}
           
       - uses: actions/upload-artifact@v2
