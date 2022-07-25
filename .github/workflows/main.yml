@@ -30,6 +30,11 @@ jobs:
       - uses: game-ci/unity-builder@v2.0.4
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+          
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-Android
+          path: build/Android
 
 
   deployPages:
@@ -44,10 +49,10 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-Android
-          path: build
+          path: build/Android
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: build
+          folder: build/Android
