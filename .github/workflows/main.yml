@@ -29,7 +29,7 @@ jobs:
           
       - uses: game-ci/unity-builder@v2.0.4
         with:
-          androidAppBundle: false
+          androidAppBundle: true
           androidKeystoreName: user.keystore
           androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build-Android
-          path: build/Android
+          path: build/Wild Leprechaun
 
 
   deployPages:
@@ -55,12 +55,12 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-Android
-          path: build/Android
+          path: build/Wild Leprechaun
 
       - name: Upload to google drive
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: "build/Android/Android.apk"
+          filename: "build/Android/Wild Leprechaun.apk"
           folderId: ${{ secrets.folderId }}
           overwrite: "true" # optional boolean
