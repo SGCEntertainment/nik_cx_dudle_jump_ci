@@ -9,8 +9,8 @@ env:
 
 jobs:
 
-  buildAndroid:
-    name: Build for Android
+  buildAndroidAPK:
+    name: Build for Android(APK)
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -29,7 +29,7 @@ jobs:
           
       - uses: game-ci/unity-builder@v2.0.4
         with:
-          androidAppBundle: true
+          androidAppBundle: false
           androidKeystoreName: user.keystore
           androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
@@ -39,12 +39,12 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: build-Android
+          name: build-Wild Leprechaun
           path: build/Wild Leprechaun
 
 
   deployPages:
-    needs: buildAndroid
+    needs: buildAndroidAPK
     name: Deploy to Google Drive
     runs-on: ubuntu-latest
     steps:
@@ -54,7 +54,7 @@ jobs:
         
       - uses: actions/download-artifact@v2
         with:
-          name: build-Android
+          name: build-Wild Leprechaun
           path: build/Wild Leprechaun
 
       - name: Upload to google drive
