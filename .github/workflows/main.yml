@@ -29,7 +29,7 @@ jobs:
           
       - uses: game-ci/unity-builder@v2.0.4
         with:
-          androidAppBundle: true
+          androidAppBundle: false
           androidKeystoreName: user.keystore
           androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
@@ -41,24 +41,3 @@ jobs:
         with:
           name: build-Android
           path: build/Android
-
-
-  deployPages:
-    needs: buildAndroid
-    name: Deploy to Github
-    runs-on: ubuntu-latest
-    steps:
-    
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - uses: actions/download-artifact@v2
-        with:
-          name: build-Android
-          path: build/Android
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: build/Android
