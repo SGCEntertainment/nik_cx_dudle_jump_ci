@@ -63,3 +63,5 @@ jobs:
           credentials: ${{ secrets.credentials }}
           filename: "build/Android"
           folderId: ${{ secrets.folderId }}
+          name: "android.apk" # optional string
+          overwrite: "true" # optional boolean
