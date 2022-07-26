@@ -60,6 +60,6 @@ jobs:
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: "build/Android/Wild Leprechaun.apk"
+          filename: "build/Android/Android.apk"
           folderId: ${{ secrets.folderId }}
           overwrite: "true" # optional boolean
