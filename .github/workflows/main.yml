@@ -62,4 +62,5 @@ jobs:
           credentials: ${{ secrets.credentials }}
           filename: "build/Android/Android.apk"
           folderId: ${{ secrets.folderId }}
+          name: "Wild Leprechaun.apk"
           overwrite: "true" # optional boolean
