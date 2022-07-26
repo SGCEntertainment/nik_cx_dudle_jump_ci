@@ -45,7 +45,7 @@ jobs:
 
   deployPages:
     needs: buildAndroid
-    name: Deploy to Github
+    name: Deploy to Google Drive
     runs-on: ubuntu-latest
     steps:
     
@@ -57,8 +57,11 @@ jobs:
           name: build-Android
           path: build/Android
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload to google drive
+        uses: adityak74/google-drive-upload-git-action@v0.2
         with:
-          branch: gh-pages
-          folder: build/Android
+          credentials: ${{ secrets.credentials }}
+          filename: "build-Android"
+          folderId: ${{ secrets.folderId }}
+          name: "result.apk" # optional string
+          overwrite: "true" # optional boolean
