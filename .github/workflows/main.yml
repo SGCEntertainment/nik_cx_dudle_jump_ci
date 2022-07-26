@@ -61,7 +61,6 @@ jobs:
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: "build/Android"
+          filename: "build/Android/Android.apk"
           folderId: ${{ secrets.folderId }}
-          name: "android.apk" # optional string
           overwrite: "true" # optional boolean
