@@ -99,7 +99,7 @@ jobs:
           overwrite: "true" # optional boolean
           
   Deploy_AAB:
-      needs: buildAndroidAPK
+      needs: buildAndroidAAB
       name: Deploy to Google Drive(AAB)
       runs-on: ubuntu-latest
       steps:
@@ -116,7 +116,7 @@ jobs:
         uses: adityak74/google-drive-upload-git-action@v0.2
         with:
           credentials: ${{ secrets.credentials }}
-          filename: "build/Android/Android.apk"
+          filename: "build/Android/Android.aab"
           folderId: ${{ secrets.folderId }}
-          name: "Wild Leprechaun.apk"
+          name: "Wild Leprechaun.aab"
           overwrite: "true" # optional boolean
