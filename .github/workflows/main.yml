@@ -40,7 +40,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build-Android
-          path: build/Wild Leprechaun
+          path: build/Android
 
 
   deployPages:
@@ -55,10 +55,10 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-Android
-          path: build/Wild Leprechaun
+          path: build/Android
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: build/Wild Leprechaun
+          folder: build/Android
