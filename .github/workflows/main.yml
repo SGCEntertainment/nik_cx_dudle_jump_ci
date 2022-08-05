@@ -13,6 +13,12 @@ jobs:
    name: Send Telegram Notify
    runs-on: ubuntu-latest
    steps:
+   
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-Android
+          path: build/Android
+          
       - name: send telegram message
         uses: appleboy/telegram-action@master
         with:
