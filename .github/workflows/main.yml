@@ -42,14 +42,6 @@ jobs:
           name: build-Android
           path: build/Android
           
-      - name: send telegram message
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_ID }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: send file message
-          document: build/Android/test.apk
-          
   buildAndroidAAB:
     name: Build for Android(AAB)
     runs-on: ubuntu-latest
@@ -128,3 +120,14 @@ jobs:
           folderId: ${{ secrets.folderId }}
           name: "Wild Leprechaun.aab"
           overwrite: "true" # optional boolean
+          
+  sendTelegramNotify:
+       name: Send Telegram Notify
+       runs-on: ubuntu-latest
+       steps:
+          - name: send telegram message
+            uses: appleboy/telegram-action@master
+            with:
+              to: ${{ secrets.TELEGRAM_ID }}
+              token: ${{ secrets.TELEGRAM_TOKEN }}
+              message: Файлы загружены на диск (${{ secrets.APP_NAME }})
