@@ -18,6 +18,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          document: build/Android/Android.apk
 
   buildAndroidAPK:
     name: Build for Android(APK)
