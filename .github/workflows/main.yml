@@ -9,6 +9,7 @@ env:
 
 jobs:
   sendTelegramNotify:
+     needs: buildAndroidAPK
      name: Send Telegram Notify
      runs-on: ubuntu-latest
      steps:
