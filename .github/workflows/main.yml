@@ -110,7 +110,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-Android
-          #path: build/Android
+          path: ${{ github.workspace }}/build/Android
 
       - name: Upload to google drive
         uses: adityak74/google-drive-upload-git-action@v0.2
