@@ -122,6 +122,7 @@ jobs:
           overwrite: "true" # optional boolean
           
   sendTelegramNotify:
+       needs: [Deploy_AAB, Deploy_APK]
        name: Send Telegram Notify
        runs-on: ubuntu-latest
        steps:
