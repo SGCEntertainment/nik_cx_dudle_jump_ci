@@ -14,13 +14,13 @@ jobs:
      runs-on: ubuntu-latest
      steps:
      
-          #- name: Checkout code
-            #uses: actions/checkout@v2
+          - name: Checkout code
+            uses: actions/checkout@v2
      
-          #- uses: actions/download-artifact@v2
-            #with:
-              #name: build-Android
-              #path: build/Android
+          - uses: actions/download-artifact@v2
+            with:
+              name: build-Android
+              path: build/Android
           - name: send telegram message
             uses: appleboy/telegram-action@master
             with:
