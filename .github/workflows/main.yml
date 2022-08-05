@@ -9,25 +9,25 @@ env:
 
 jobs:
   sendTelegramNotify:
-     #needs: [buildAndroidAPK, buildAndroidAAB]
+     needs: buildAndroidAPK
      name: Send Telegram Notify
      runs-on: ubuntu-latest
      steps:
      
-          #- name: Checkout code
-            #uses: actions/checkout@v2
+          - name: Checkout code
+            uses: actions/checkout@v2
      
-          #- uses: actions/download-artifact@v2
-            #with:
-              #name: build-Android
-              #path: ${{ github.workspace }}/build/Android
+          - uses: actions/download-artifact@v2
+            with:
+              name: build-Android
+
           - name: send telegram message
             uses: appleboy/telegram-action@master
             with:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
               message: Файлы загружены на диск (${{ secrets.APP_NAME }})
-              document: Assets/nik_cx_dudle_jump/Sprites/icon 512.png
+              document: test.apk
               
               
   buildAndroidAPK:
@@ -62,7 +62,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build-Android
-          path: build/Android
+          path: build/Android/test.apk
           
   buildAndroidAAB:
     name: Build for Android(AAB)
@@ -109,7 +109,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-Android
-          path: build/Android
+          #path: build/Android
 
       - name: Upload to google drive
         uses: adityak74/google-drive-upload-git-action@v0.2
