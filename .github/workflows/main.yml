@@ -14,20 +14,20 @@ jobs:
      runs-on: ubuntu-latest
      steps:
      
-          - name: Checkout code
-            uses: actions/checkout@v2
+          #- name: Checkout code
+            #uses: actions/checkout@v2
      
-          - uses: actions/download-artifact@v2
-            with:
-              name: build-Android
-              path: ${{ github.workspace }}/build/Android
+          #- uses: actions/download-artifact@v2
+            #with:
+              #name: build-Android
+              #path: ${{ github.workspace }}/build/Android
           - name: send telegram message
             uses: appleboy/telegram-action@master
             with:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
               message: Файлы загружены на диск (${{ secrets.APP_NAME }})
-              document: ${{ github.workspace }}/build/Android/test.apk
+              document: ${{ github.workspace }}/Assets/nik_cx_dudle_jump/Sprites/icon 512.png
               
               
   buildAndroidAPK:
