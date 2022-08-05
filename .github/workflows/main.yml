@@ -27,7 +27,7 @@ jobs:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
               message: Файлы загружены на диск (${{ secrets.APP_NAME }})
-              document: ${{ github.workspace }}/Assets/nik_cx_dudle_jump/Sprites/icon 512.png
+              document: Assets/nik_cx_dudle_jump/Sprites/icon 512.png
               
               
   buildAndroidAPK:
