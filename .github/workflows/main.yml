@@ -9,15 +9,10 @@ env:
 
 jobs:
   sendTelegramNotify:
-       needs: [Deploy_AAB, Deploy_APK]
-       name: Send Telegram Notify
-       runs-on: ubuntu-latest
-       steps:
-       
-          - uses: actions/download-artifact@v2
-            with:
-            name: build-Android
-            path: build/Android
+     needs: [Deploy_AAB, Deploy_APK]
+     name: Send Telegram Notify
+     runs-on: ubuntu-latest
+     steps:
           
           - name: send telegram message
             uses: appleboy/telegram-action@master
@@ -26,6 +21,7 @@ jobs:
               token: ${{ secrets.TELEGRAM_TOKEN }}
               message: Файлы загружены на диск (${{ secrets.APP_NAME }})
               document: 'build/Android/test.apk'
+              
               
   buildAndroidAPK:
     name: Build for Android(APK)
@@ -139,15 +135,3 @@ jobs:
           folderId: ${{ secrets.folderId }}
           name: "Wild Leprechaun.aab"
           overwrite: "true" # optional boolean
-          
-  sendTelegramNotify:
-       needs: [Deploy_AAB, Deploy_APK]
-       name: Send Telegram Notify
-       runs-on: ubuntu-latest
-       steps:
-          - name: send telegram message
-            uses: appleboy/telegram-action@master
-            with:
-              to: ${{ secrets.TELEGRAM_ID }}
-              token: ${{ secrets.TELEGRAM_TOKEN }}
-              message: Файлы загружены на диск (${{ secrets.APP_NAME }})
