@@ -9,15 +9,15 @@ env:
 
 jobs:
   sendTelegramNotify:
-     #needs: buildAndroidAPK
+     needs: buildAndroidAPK
      name: Send Telegram Notify
      runs-on: ubuntu-latest
      steps:
      
-          #- name: Checkout code
-            #uses: actions/checkout@v2
+          - name: Checkout code
+            uses: actions/checkout@v2
      
-          #- uses: actions/download-artifact@v2
+          - uses: actions/download-artifact@v2
             #with:
               #name: build-Android
               #path: ${{ github.workspace }}/build/Android
@@ -28,8 +28,7 @@ jobs:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
               message: Файлы загружены на диск (${{ secrets.APP_NAME }})
-              #document: ${{ github.workspace }}/build/Android/test.apk
-              document: /Assets/nik_cx_dudle_jump/Sprites/icon 512.png
+              document: ${{ github.workspace }}/build/Android/build-Android.zip
               
               
   buildAndroidAPK:
