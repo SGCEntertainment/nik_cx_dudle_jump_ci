@@ -18,9 +18,9 @@ jobs:
             uses: actions/checkout@v2
      
           - uses: actions/download-artifact@v2
-            #with:
-              #name: build-Android
-              #path: ${{ github.workspace }}/build/Android
+            with:
+              name: build-Android
+              path: ${{ github.workspace }}/build/Android
 
           - name: send telegram message
             uses: appleboy/telegram-action@master
@@ -28,7 +28,6 @@ jobs:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
               message: Файлы загружены на диск (${{ secrets.APP_NAME }})
-              document: /github/workspace/build/Android/Wild Leprechaun.apk
               
               
   buildAndroidAPK:
