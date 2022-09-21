@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Third/Scenes/demo.unity
     guid: 4e1cfeaa3a2699e47a0b14583428ca1a
   - enabled: 1
-    path: 
-    guid: a3970d15c58b0f641a946b762944189e
-  - enabled: 1
     path: Assets/nik_cx_dudle_jump/Scenes/game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
